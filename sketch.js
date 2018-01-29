@@ -17,7 +17,7 @@ function draw() {
   var h = hour();
   fill(250, 0, 0);
   text('Hour:\n' + h, 100, 50);
-  var h = map(h, 0, 100, 0, 50);
+  var h = map(h, 0, 100, 0, width);
   ellipse(h, 25, 25, 25);
 
   var m = minute();
