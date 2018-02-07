@@ -4,9 +4,9 @@ function setup(){
 function draw() {
   background('blue');
 
-  fill(255, 255, 255);
+   fill(255, 255, 255);
+   ellipse(map(second(), 0, 60, 0, width), 50, 10, 10);
 
-    rect(20, 20, map(second(), 0, 60, 0, width), 60);
-
-    ellipse(250, 300, map(minute(), 0, 60, 0, width), map(hour(), 0, 24, 0, height));
+   fill(0, 0, 0);
+   ellipse(250, 300, map(minute(), 0, 60, 0, 400), map(hour(), 0, 24, 0, 400));
 }
