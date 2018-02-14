@@ -39,15 +39,15 @@ function draw() {
   var margin = 40;
   translate(margin, margin);
 
-  var lineheight = 15;
-  var rectheight = 12;
+  var lineheight = 30;
 
   for (var i = 0; i < headlines.length; i++) {
 
-    // draw rectangle
-    fill(255);
-    var rectwidth = map(headlines[i].length,minHeadLen, maxHeadLen, margin, width-margin*2);
-    rect(0, i*lineheight, rectwidth, -1*rectheight)
+    // draw line
+    var linelength = map(headlines[i].length,minHeadLen, maxHeadLen, margin, width-margin*2);
+    stroke(255);
+    strokeWeight(0.15);
+    line(0, i*lineheight, linelength, -1*rectheight)
 
     // draw headline
     fill("green");

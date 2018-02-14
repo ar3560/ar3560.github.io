@@ -1,18 +1,7 @@
 var headlines = [];
-var hitwords = [
-  "and",
-  "or",
-  "the",
-  "on",
-  "a",
-  "an",
-  "in",
-  "into",
-  "of",
-  "for",
-  "from",
-  "awesome"
-];
+var punct = [
+  ",", ".", "'", "!", "?", "-", "_", ":", ";"];
+
 
 function preload() {
 
@@ -41,18 +30,21 @@ function setup() {
 function draw() {
   background(0);
 
-  var lineheight = 24;
-  var margin = 40;
+  var lineheight = 30;
+  var margin = 30;
   translate(margin, margin);
 
   for (var i = 0; i < headlines.length; i++) {
     var words = split(headlines[i], ' ');
-    // console.log(words);
+    //console.log(words);
 
     var nextX = 0;
 
+//only have the punctuation show up
+
     for (var j = 0; j < words.length; j++) {
-      if (hitwords.includes(words[j].toLowerCase())) {
+      if (punct.includes(words[j])) {
+        noStroke();
         fill("orange");
       } else {
         fill(255);
