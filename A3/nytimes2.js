@@ -1,12 +1,13 @@
-// This example uses NYT's Top Stories API and visualizes the relative
-// length of story headlines.
-// ---
-
 var myFont;
 var headlines = [];
 var maxHeadLen, minHeadLen;
+var poli = [
+"Trump", "Donald", "Pence", "White House", "Senate", 
+"Congress", "Vote", "Democrat", "Republican", "Elections", "Ivanka", "Melania",
+"Trump's", "Pence's", "Don Jr."];
 
 function preload() {
+
   myFont = loadFont('Roboto-Light.ttf');
 
   // Assemble url for API call
@@ -21,7 +22,6 @@ function preload() {
 
 function setup() {
   createCanvas(800, 1000);
-  background(0);
 
   textSize(10);
   textFont(myFont);
@@ -33,7 +33,7 @@ function setup() {
 }
 
 function draw() {
-  background(0);
+  background(120);
 
   // Set the left and top margin
   var margin = 40;
@@ -42,18 +42,28 @@ function draw() {
   var lineheight = 30;
 
   for (var i = 0; i < headlines.length; i++) {
+    var words = split(headlines[i], ' ');
 
-    // draw line
+    var nextX = 0;
+
     var linelength = map(headlines[i].length,minHeadLen, maxHeadLen, margin, width-margin*2);
     stroke(255);
     strokeWeight(0.15);
-    line(0, i*lineheight, linelength, -1*rectheight)
+    line(0, i*lineheight, linelength, i*lineheight);
 
-    // draw headline
-    fill("green");
-    text(headlines[i], 0, i*lineheight);
+    if(poli.includes(words[i])) {
+      noStroke();
+      fill(0);
+      ellipse(linelength, i*lineheight, 20, 20);
+    } else {
+      noStroke();
+      fill(255);
+      ellipse(linelength, i*lineheight, 20, 20);
+    }
+    
   }
 }
+
 
 function extractHeadlines() {
 
