@@ -45,14 +45,14 @@ function draw() {
     for (var j = 0; j < words.length; j++) {
       if (punct.includes(words[j])) {
         noStroke();
-        fill("orange");
+        fill("green");
       } else {
-        fill(255);
+        NoFill();
       }
 
       text(words[j]+' ', nextX, i*lineheight);
       nextX += textWidth(words[j]+' ');
-    }
+    };
   }
 }
 

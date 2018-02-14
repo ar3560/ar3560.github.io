@@ -59,7 +59,7 @@ function draw() {
       noStroke();
       fill(255);
       ellipse(linelength, i*lineheight, 20, 20);
-    }
+    };
     
   }
 }
