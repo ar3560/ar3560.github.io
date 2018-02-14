@@ -10,7 +10,8 @@ var hitwords = [
   "into",
   "of",
   "for",
-  "from"
+  "from",
+  "awesome"
 ];
 
 function preload() {
