@@ -1,5 +1,5 @@
 var headlines = [];
-var punct = [
+var punc = [
   ",", ".", "'", "!", "?", "-", "_", ":", ";"];
 
 
@@ -43,11 +43,22 @@ function draw() {
 //only have the punctuation show up
 
     for (var j = 0; j < words.length; j++) {
-      if (punct.includes(words[j])) {
+
+      //define size of alphabet
+      var str1 = 'abcdefghijklmnopqrstuvwxyz';
+      var str2 = split(str1, '');
+      var size = (str2.indexOf(words[j])+1);
+
+      //define size of numbers
+      var str3 = '0123456789';
+      var str4 = split(str3, '');
+      var sizen = (str4.indexOf(words[j])+1)
+
+      if (punc.includes(words[j])) {
         noStroke();
         fill("green");
       } else {
-        NoFill();
+        fill(0);
       }
 
       text(words[j]+' ', nextX, i*lineheight);

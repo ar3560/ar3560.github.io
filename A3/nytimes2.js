@@ -8,8 +8,6 @@ var poli = [
 
 function preload() {
 
-  myFont = loadFont('Roboto-Light.ttf');
-
   // Assemble url for API call
   var url = "https://api.nytimes.com/svc/topstories/v2/home.json";
   var apikey = "b849eb6d180c4cfab298bcf573781bdf"; // see: https://developer.nytimes.com
@@ -24,10 +22,9 @@ function setup() {
   createCanvas(800, 1000);
 
   textSize(10);
-  textFont(myFont);
   textAlign(LEFT);
 
-  noLoop(); // since we're not animating, one frame is sufficient: run draw() just once
+  noLoop();
 
   extractHeadlines();
 }
@@ -43,6 +40,7 @@ function draw() {
 
   for (var i = 0; i < headlines.length; i++) {
     var words = split(headlines[i], ' ');
+    console.log(words)
 
     var nextX = 0;
 
@@ -51,18 +49,22 @@ function draw() {
     strokeWeight(0.15);
     line(0, i*lineheight, linelength, i*lineheight);
 
-    if(poli.includes(words[i])) {
+   for(var j = 0; j < words.length; j++) {
+
+    if (poli.includes(words[j].toLowerCase())) {
       noStroke();
-      fill(0);
-      ellipse(linelength, i*lineheight, 20, 20);
+      fill(255);
+      rect(linelength, i*lineheight, 20, 20);
     } else {
       noStroke();
       fill(255);
       ellipse(linelength, i*lineheight, 20, 20);
-    };
-    
+
+    }
+    }
   }
 }
+
 
 
 function extractHeadlines() {
