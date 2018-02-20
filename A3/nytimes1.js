@@ -1,6 +1,6 @@
 var headlines = [];
-var punc = [
-  ",", ".", "'", "!", "?", "-", "_", ":", ";"];
+var the = [
+  "the", "The"];
 
 
 function preload() {
@@ -44,23 +44,15 @@ function draw() {
 
     for (var j = 0; j < words.length; j++) {
 
-      //define size of alphabet
-      var str1 = 'abcdefghijklmnopqrstuvwxyz';
-      var str2 = split(str1, '');
-      var size = (str2.indexOf(words[j])+1);
 
-      //define size of numbers
-      var str3 = '0123456789';
-      var str4 = split(str3, '');
-      var sizen = (str4.indexOf(words[j])+1)
-
-      if (punc.includes(words[j])) {
+      if (the.includes(words[j])) {
         noStroke();
-        fill("green");
+        fill("white");
       } else {
         fill(0);
       }
-
+      
+      textStyle(BOLD);
       text(words[j]+' ', nextX, i*lineheight);
       nextX += textWidth(words[j]+' ');
     };

@@ -24,7 +24,6 @@ function setup() {
   textSize(10);
   textAlign(LEFT);
 
-  noLoop();
 
   extractHeadlines();
 }
@@ -48,7 +47,6 @@ function draw() {
     stroke(255);
     strokeWeight(0.15);
     line(0, i*lineheight, linelength, i*lineheight);
-
     
 
    for(var j = 0; j < words.length; j++) {
@@ -69,7 +67,15 @@ function draw() {
     }
       else { break; }
 
+
+
     }
+
+    if (mouseX > margin && mouseX < margin+linelength && mouseY < margin+i*lineheight && mouseY > margin+i*lineheight+(-1*lineheight))     
+      {fill(255);
+      text(headlines[i], 0, i*lineheight);}
+
+    // } else {break;}
   }
 }
 
