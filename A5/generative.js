@@ -1,5 +1,5 @@
-var NUMSINES = 12; // how many of these things can we do at once?
-var sines = new Array(NUMSINES); // an array to hold all the current angles
+var sines;
+var NUMSINES;
 var rad; // an initial radius value for the central sine
 var i; // a counter variable
 
@@ -15,6 +15,9 @@ function setup() {
 
   rad = height/4; // compute radius for central circle
   background(204); // clear the screen
+
+  NUMSINES = map(hour(), 0, 24, 0, 24);
+  sines = new Array(NUMSINES);
 
   for (var i = 0; i<sines.length; i++) {
     sines[i] = PI; // start EVERYBODY facing NORTH
