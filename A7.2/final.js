@@ -24,7 +24,7 @@ textSize(12);
   text('10 PM', 10, 380);
 
 stroke(0);
-    strokeWeight(0.25);
-    line(15, 60, 15, 380);
+    strokeWeight(1);
+    line(50, 60, 50, 380);
 
 }
