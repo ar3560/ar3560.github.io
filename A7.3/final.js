@@ -10,46 +10,46 @@ function setup() {
 
 background(100);
 
-sel = createSelect();
-sel.position(600,60);
-sel.option('Monday');
-sel.option('Tuesday');
-sel.option('Wednesday');
-sel.option('Thursday');
-sel.option('Friday');
-sel.option('Saturday');
-sel.option('Sunday');
-sel.changed(mySelectEvent);
+selDay = createSelect();
+selDay.position(600,60);
+selDay.option('Monday');
+selDay.option('Tuesday');
+selDay.option('Wednesday');
+selDay.option('Thursday');
+selDay.option('Friday');
+selDay.option('Saturday');
+selDay.option('Sunday');
+// selDay.changed(myselectDay);
 
-sel = createSelect();
-sel.position(600,90);
-sel.option('6AM');
-sel.option('7AM');
-sel.option('8AM');
-sel.option('9AM');
-sel.option('10AM');
-sel.option('11AM');
-sel.option('12PM');
-sel.option('1PM');
-sel.option('2PM');
-sel.option('3PM');
-sel.option('4PM');
-sel.option('5PM');
-sel.option('6PM');
-sel.option('7PM');
-sel.option('8PM');
-sel.option('9PM');
-sel.option('10PM');
-sel.changed(mySelectEvent);
+selTime = createSelect();
+selTime.position(600,90);
+selTime.option('6AM');
+selTime.option('7AM');
+selTime.option('8AM');
+selTime.option('9AM');
+selTime.option('10AM');
+selTime.option('11AM');
+selTime.option('12PM');
+selTime.option('1PM');
+selTime.option('2PM');
+selTime.option('3PM');
+selTime.option('4PM');
+selTime.option('5PM');
+selTime.option('6PM');
+selTime.option('7PM');
+selTime.option('8PM');
+selTime.option('9PM');
+selTime.option('10PM');
+// selTime.changed(mySelectTime);
 
-sel = createSelect();
-sel.position(600,120);
-sel.option('Manhattan');
-sel.option('Brooklyn');
-sel.option('Queens');
-sel.option('Bronx');
-sel.option('StatenIsland');
-sel.changed(mySelectEvent);
+selBoro = createSelect();
+selBoro.position(600,120);
+selBoro.option('Manhattan');
+selBoro.option('Brooklyn');
+selBoro.option('Queens');
+selBoro.option('Bronx');
+selBoro.option('StatenIsland');
+// selBoro.changed(mySelectBoro);
 
 textSize(12);
   fill(255);
@@ -90,7 +90,15 @@ function loadData() {
 
 }
 
-function mySelectEvent() {
-	var item = sel.value();
+function draw() {
+	for (var i=0; i < table.getRowCount(); i++) {
+		print(table.getRow(i).get("Start Time"));	// start time of first compost
+	}
+	
+
+}
+
+function mySelectDay() {
+	var item = selDay.value();
 
 }
