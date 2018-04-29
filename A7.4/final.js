@@ -28,7 +28,7 @@ function setup() {
   loadData();
 
 selTime = createSelect();
-selTime.position(90,90);
+selTime.position(205,60);
 selTime.option('6');
 selTime.option('7');
 selTime.option('8');
@@ -49,7 +49,7 @@ selTime.option('22');
 selTime.changed(mySelectOverall);
 
 selBoro = createSelect();
-selBoro.position(150,90);
+selBoro.position(5,60);
 selBoro.option('Manhattan');
 selBoro.option('Brooklyn');
 selBoro.option('Queens');
@@ -58,7 +58,7 @@ selBoro.option('StatenIsland');
 selBoro.changed(mySelectOverall);
 
 selDay = createSelect();
-selDay.position(210,90);
+selDay.position(105,60);
 selDay.option('Monday');
 selDay.option('Tuesday');
 selDay.option('Wednesday');
@@ -144,18 +144,18 @@ function draw() {
 
 	for(var i = 0; i < startTimeS.length; i++) {
 
-		fill(0);
+		fill(160,193,26);
 		noStroke();
 
 		for(var j = 0; j < finalLocations.length; j++) {
 			if (i == finalLocations[j]) {
-				fill(255,0,0);
+				fill(255,179,0);
 				noStroke();
 				// console.log(finalLocations[j]);
 			}
 		}
 
-		rect(i*10, -100 + startTimeS[i] * 45, 10, (endTimeS[i]-startTimeS[i])*45);
+		rect((i*10) + 50, -200 + startTimeS[i] * 45, 10, (endTimeS[i]-startTimeS[i])*45);
 
 	}
 
