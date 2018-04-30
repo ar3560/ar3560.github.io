@@ -18,17 +18,28 @@ var currentBorough;
 var currentMonday;
 
 
-
 function preload(){
   table = loadTable('NYC_Food_Scrap_Drop-off_Sites.csv', 'csv', 'header');
+  Roboto_Light = loadFont('Roboto-Light.ttf');
+  Roboto_Regular = loadFont('Roboto-Regular.ttf');
 }
 
 function setup() {
-  createCanvas(2000, 900);
+  createCanvas(1450, 800);
   loadData();
 
+//   var mydiv = createDiv(columnWithName[i]);
+// mydiv.addClass (name to change with css)
+// mydiv.positiion(i*10, startTime[i]);
+// mydiv.style('width', 10) or ('width', '10px')
+// mydiv.style('height', endDate[i] - startTime[i]) or mydiv.style('height', endDate[i] - startTime[i] + 'px')
+
+// create dropdown menus
+
 selTime = createSelect();
-selTime.position(205,60);
+selTime.addClass('mymenu');
+selTime.position(925,110);
+selTime.option('TIME');
 selTime.option('6AM');
 selTime.option('7AM');
 selTime.option('8AM');
@@ -45,11 +56,12 @@ selTime.option('6PM');
 selTime.option('7PM');
 selTime.option('8PM');
 selTime.option('9PM');
-selTime.option('10PM');
 selTime.changed(mySelectOverall);
 
 selBoro = createSelect();
-selBoro.position(5,60);
+selBoro.addClass('mymenu2');
+selBoro.position(425,110);
+selBoro.option('BOROUGH');
 selBoro.option('Manhattan');
 selBoro.option('Brooklyn');
 selBoro.option('Queens');
@@ -58,7 +70,9 @@ selBoro.option('Staten Island');
 selBoro.changed(mySelectOverall);
 
 selDay = createSelect();
-selDay.position(105,60);
+selDay.addClass('mymenu3');
+selDay.position(675,110);
+selDay.option('DAY');
 selDay.option('Monday');
 selDay.option('Tuesday');
 selDay.option('Wednesday');
@@ -69,6 +83,8 @@ selDay.option('Sunday');
 selDay.changed(mySelectOverall);
 
 }
+
+// get information from .csv file
 
 function loadData() {
 	startTimeS = table.getColumn("Start Time");
@@ -99,13 +115,15 @@ function loadData() {
 // 	console.log("Selected");
 // }
 
+// get information from dropdown menus
+
 function mySelectOverall() {
 	finalLocations.length = 0;
 
 	currentTime = selTime.value();
 	currentDay = selDay.value();
 	currentBorough = selBoro.value();
-	console.log("Time"+currentTime + "Day" + currentDay + "Borough" + currentBorough);
+	//console.log("Time"+currentTime + "Day" + currentDay + "Borough" + currentBorough);
 
 
 	for(var i = 1; i < startTimeS.length; i++) {
@@ -116,7 +134,7 @@ function mySelectOverall() {
 			// 	console.log(startTimeS[i]);
 				if (currentDay == dayS[i]) {
 					finalLocations.push(i);
-					console.log("The Index is" + i);
+					//console.log("The Index is" + i);
 				}
 			// } else {
 			// 	console.log("time doesnt match");
@@ -133,84 +151,166 @@ function mySelectOverall() {
 function draw() {
 	// console.log(boroughS[10]);
 
+background(255, 194, 150);
+
+
+// axis labels
 textSize(12);
-  fill(0);
-  text('6 AM', 10, 80);
-  text('7 AM', 10, 125);
-  text('8 AM', 10, 170);
-  text('9 AM', 10, 215);
-  text('10 AM', 10, 260);
-  text('11 AM', 10, 305);
-  text('12 PM', 10, 350);
-  text('1 PM', 10, 395);
-  text('2 PM', 10, 440);
-  text('3 PM', 10, 485);
-  text('4 PM', 10, 530);
-  text('5 PM', 10, 575);
-  text('6 PM', 10, 620);
-  text('7 PM', 10, 665);
-  text('8 PM', 10, 710);
-  text('9 PM', 10, 755);
-  text('10 PM', 10, 800);
+textFont(Roboto_Light);
+  fill(105,130,65);
+  text('6 AM', 10, 75);
+  text('7 AM', 10, 120);
+  text('8 AM', 10, 165);
+  text('9 AM', 10, 210);
+  text('10 AM', 10, 255);
+  text('11 AM', 10, 300);
+  text('12 PM', 10, 345);
+  text('1 PM', 10, 390);
+  text('2 PM', 10, 435);
+  text('3 PM', 10, 480);
+  text('4 PM', 10, 525);
+  text('5 PM', 10, 570);
+  text('6 PM', 10, 615);
+  text('7 PM', 10, 660);
+  text('8 PM', 10, 705);
+  text('9 PM', 10, 750);
 
-stroke(0);
-    strokeWeight(1);
-    line(50, 60, 50, 820);
+// draw and edit axis lines
+stroke(214,115,90);
+    strokeWeight(2);
+    line(50, 60, 50, 775);
 
- stroke(0);
-    strokeWeight(0.07);
-    line(50, 70, 1100, 70);
- stroke(0);
-    strokeWeight(0.07);
-    line(50, 115, 1100, 115);
- stroke(0);
-    strokeWeight(0.07);
-    line(50, 160, 1100, 160);
- stroke(0);
-    strokeWeight(0.07);
-    line(50, 205, 1100, 205);
- stroke(0);
-    strokeWeight(0.07);
-    line(50, 250, 1100, 250);
- stroke(0);
-    strokeWeight(0.07);
-    line(50, 295, 1100, 295);
- stroke(0);
-    strokeWeight(0.07);
-    line(50, 340, 1100, 340);
- stroke(0);
-    strokeWeight(0.07);
-    line(50, 385, 1100, 385);
- stroke(0);
-    strokeWeight(0.07);
-    line(50, 430, 1100, 430);
- stroke(0);
-    strokeWeight(0.07);
-    line(50, 475, 1100, 475);
- stroke(0);
-    strokeWeight(0.07);
-    line(50, 520, 1100, 520);
- stroke(0);
-    strokeWeight(0.07);
-    line(50, 565, 1100, 565);
- stroke(0);
-    strokeWeight(0.07);
-    line(50, 610, 1100, 610);
- stroke(0);
-    strokeWeight(0.07);
-    line(50, 655, 1100, 655);
- stroke(0);
-    strokeWeight(0.07);
-    line(50, 700, 1100, 700);
- stroke(0);
-    strokeWeight(0.07);
-    line(50, 745, 1100, 745);
- stroke(0);
-    strokeWeight(0.07);
-    line(50, 790, 1100, 790);
+//6AM
+ stroke(57,73,52);
+        if (selTime.value()=='6AM') {
+        	strokeWeight(1.5);
+        	stroke(255);
+        }
+ 		else if (selTime.value()!='6AM') {strokeWeight(.25)};
+ 	line(50, 70, 1400, 70);
+//7AM    
+ stroke(57,73,52);
+        if (selTime.value()=='7AM') {
+        	strokeWeight(1.5);
+        	stroke(255);
+        }
+ 		else if (selTime.value()!='7AM') {strokeWeight(.25)};
+    line(50, 115, 1400, 115);
+ //8AM
+ stroke(57,73,52);
+        if (selTime.value()=='8AM') {
+        	strokeWeight(1.5);
+        	stroke(255);
+        }
+ 		else if (selTime.value()!='8AM') {strokeWeight(.25)};
+    line(50, 160, 1400, 160);
+ //9AM
+ stroke(57,73,52);
+        if (selTime.value()=='9AM') {
+        	strokeWeight(1.5);
+        	stroke(255);
+        }
+ 		else if (selTime.value()!='9AM') {strokeWeight(.25)};
+    line(50, 205, 1400, 205);
+ //10AM
+ stroke(57,73,52);
+        if (selTime.value()=='10AM') {
+        	strokeWeight(1.5);
+        	stroke(255);
+        }
+ 		else if (selTime.value()!='10AM') {strokeWeight(.25)};
+    line(50, 250, 1400, 250);
+ //11AM
+ stroke(57,73,52);
+        if (selTime.value()=='11AM') {
+        	strokeWeight(1.5);
+        	stroke(255);
+        }
+ 		else if (selTime.value()!='11AM') {strokeWeight(.25)};
+    line(50, 295, 1400, 295);
+ //12PM
+ stroke(57,73,52);
+        if (selTime.value()=='12PM') {
+        	strokeWeight(1.5);
+        	stroke(255);
+        }
+ 		else if (selTime.value()!='12PM') {strokeWeight(.25)};
+    line(50, 340, 1400, 340);
+ //1PM
+ stroke(57,73,52);
+        if (selTime.value()=='1PM') {
+        	strokeWeight(1.5);
+        	stroke(255);
+        }
+ 		else if (selTime.value()!='1PM') {strokeWeight(.25)};
+    line(50, 385, 1400, 385);
+ //2PM
+ stroke(57,73,52);
+        if (selTime.value()=='2PM') {
+        	strokeWeight(1.5);
+        	stroke(255);
+        }
+ 		else if (selTime.value()!='2PM') {strokeWeight(.25)};
+    line(50, 430, 1400, 430);
+ //3PM
+ stroke(57,73,52);
+        if (selTime.value()=='3PM') {
+        	strokeWeight(1.5);
+        	stroke(255);
+        }
+ 		else if (selTime.value()!='3PM') {strokeWeight(.25)};
+    line(50, 475, 1400, 475);
+ //4PM
+ stroke(57,73,52);
+        if (selTime.value()=='4PM') {
+        	strokeWeight(1.5);
+        	stroke(255);
+        }
+ 		else if (selTime.value()!='4PM') {strokeWeight(.25)};
+    line(50, 520, 1400, 520);
+ //5PM
+ stroke(57,73,52);
+        if (selTime.value()=='5PM') {
+        	strokeWeight(1.5);
+        	stroke(255);
+        }
+ 		else if (selTime.value()!='5PM') {strokeWeight(.25)};
+    line(50, 565, 1400, 565);
+ //6PM
+ stroke(57,73,52);
+        if (selTime.value()=='6PM') {
+        	strokeWeight(1.5);
+        	stroke(255);
+        }
+ 		else if (selTime.value()!='6PM') {strokeWeight(.25)};
+    line(50, 610, 1400, 610);
+ //7PM
+ stroke(57,73,52);
+        if (selTime.value()=='7PM') {
+        	strokeWeight(1.5);
+        	stroke(255);
+        }
+ 		else if (selTime.value()!='7PM') {strokeWeight(.25)};
+    line(50, 655, 1400, 655);
+ //8PM
+ stroke(57,73,52);
+        if (selTime.value()=='8PM') {
+        	strokeWeight(1.5);
+        	stroke(255);
+        }
+ 		else if (selTime.value()!='8PM') {strokeWeight(.25)};
+    line(50, 700, 1400, 700);
+ //9PM
+ stroke(57,73,52);
+        if (selTime.value()=='9PM') {
+        	strokeWeight(1.5);
+        	stroke(255);
+        }
+ 		else if (selTime.value()!='9PM') {strokeWeight(.25)};
+    line(50, 745, 1400, 745);
 
 
-
+// location results
 	document.getElementById("results").innerHTML = "";
 
 	for(var i = 0; i < finalLocations.length; i++) {
@@ -218,24 +318,28 @@ stroke(0);
 		// console.log(finalLocations[0]);
 	}
 
-	//noStroke();
-
+// draw rectangles
 	for(var i = 0; i < startTimeS.length; i++) {
 
-		fill(160,193,26,50);
+		fill(136,153,78,95);
 		noStroke();
 
 		for(var j = 0; j < finalLocations.length; j++) {
 			if (i == finalLocations[j]) {
-				fill(255,179,0,50);
+				fill(255,109,80,95);
 				noStroke();
 				// console.log(finalLocations[j]);
 			}
 		}
 
-		rect((i*10) + 60, -200 + startTimeS[i] * 45, 10, (endTimeS[i]-startTimeS[i])*45);
+
+
+
+		rect((i*13) + 60, -200 + startTimeS[i] * 45, 13, (endTimeS[i]-startTimeS[i])*45);
 
 
 	}
+
+
 
 }

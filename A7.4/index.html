@@ -2,11 +2,80 @@
 <html>
   <head>
     <meta name="viewport" width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0>
-    <style> body {padding: 0; margin: 0;} </style>
+    <style> body {
+    	padding: 0; 
+    	margin: 0;
+    	font-family: Roboto;
+    	background-color: #FFC286;
+
+    } 
+    h1 {
+    	font-family: Roboto;
+    	color: white;
+    	font-size: 45px;
+    	text-transform: uppercase;
+    	text-indent: 300px;
+    	position: relative;
+    	bottom: 10px;
+
+    }
+
+    p {
+    	color: white;
+    }
+    .mymenu{
+    	background-color: #f2e5a7;
+    	color: white;
+    	border-radius: 0px;
+    	font-size: 20px;
+    	border: 6px solid transparent;
+  		border-color: #fff transparent transparent transparent;
+  		cursor: pointer;
+    }
+
+    .mymenu select {
+  display: none; /*hide original SELECT element:*/
+	}
+
+	.mymenu2{
+    	background-color: #f2e5a7;
+    	color: white;
+    	border-radius: 0px;
+    	font-size: 20px;
+    	border: 6px solid transparent;
+  		border-color: #fff transparent transparent transparent;
+  		cursor: pointer;
+    }
+
+    .mymenu2 select {
+  display: none; /*hide original SELECT element:*/
+	}
+
+    .mymenu3{
+    	background-color: #f2e5a7;
+    	color: white;
+    	border-radius: 0px;
+    	font-size: 20px;
+    	border: 6px solid transparent;
+  		border-color: #fff transparent transparent transparent;
+  		cursor: pointer;
+    }
+
+    .mymenu3 select {
+  display: none; /*hide original SELECT element:*/
+	}
+
+
+
+</style>
 
   </head>
   <body>
-  		<h1> Food Scrap Dropoff Locations </h1>
+  		<h1> 
+  		<img src="foodscrap.png" alt="Food Scrap" style="width:40px;height:40px;">
+  		Food Scrap Dropoff Locations 
+  		<img src="foodscrap.png" alt="Food Scrap" style="width:40px;height:40px;">
+  		</h1><br>
   		<!-- <form> 
   			<select class="currentTime">
   				<option value="6">6AM</option>
@@ -32,7 +101,7 @@
 
   			<input type="submit" id="submit" value="see result">
   		</form> -->
-  		<p> You can drop off at: </p>
+  		<p> YOUR DROPOFF LOCATIONS ARE: </p>
   		<p id="results"> Results </p>
 
     <script src="p5.min.js"></script>
